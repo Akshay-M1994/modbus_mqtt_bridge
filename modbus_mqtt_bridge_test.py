@@ -73,7 +73,16 @@ mqttc.loop_start()
 
 while True:
             #create dummy command
-            mqttMsg = {"cmdName":"Voltage","uuid":"3bf11-00a1","devAdd":1,"devProfile":"DME111","regData":[]}
+            mqttMsg = {
+                        "cmdName"   :"Voltage",
+                        "uuid"      :"3bf11-00a1",
+                        "devId"     :"901af12",
+                        "devProfile":"DME111",
+                        "devAdd"    :1, 
+                        "regData"   :[],
+                        "result"    :0
+                      } 
+
 
             #publish response
             mqttc.publish(MODBUS_CMD_TOPIC,json.dumps(mqttMsg))
